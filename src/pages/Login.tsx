@@ -18,26 +18,19 @@ const formSchema = z
       .string()
       .min(2, { message: "Kindly input a valid email" })
       .email("This is not a valid email"),
-    username: z.string().min(3).max(20),
     password: z
       .string()
-      .min(8, { message: "Password should be less than 8" })
-      .max(20),
-    confirmPassword: z.string().min(8, {}),
   })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords don't match",
-    path: ["confirmPassword"],
-  });
+  
 
-export default function Registration() {
+export default function Login() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+     
       email: "",
       password: "",
-      confirmPassword: "",
+    
     },
   });
   const onSubmit = (data: z.infer<typeof formSchema>) => {
@@ -47,24 +40,10 @@ export default function Registration() {
   return (
     <section className="w-full flex justify-center align-center">
       <div className="w-1/2 ">
-        <h2 className="font-bold "> SIGN UP HERE</h2>
+        <h2 className="font-bold mb-10"> LOGIN</h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <FormField
-              control={form.control}
-              name="username"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input
-                      className=" h-7 rounded"
-                      placeholder="username"
-                      {...field}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
+           
             <FormField
               control={form.control}
               name="email"
@@ -72,7 +51,7 @@ export default function Registration() {
                 <FormItem>
                   <FormControl>
                     <Input
-                      className="h-7 rounded"
+                      className="h-8 rounded"
                       placeholder="email"
                       {...field}
                     />
@@ -87,7 +66,7 @@ export default function Registration() {
                 <FormItem>
                   <FormControl>
                     <Input
-                      className="h-7 rounded"
+                      className="h-8 rounded"
                       placeholder="password"
                       {...field}
                     />
@@ -95,33 +74,20 @@ export default function Registration() {
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="confirmPassword"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input
-                      className="h-7 rounded"
-                      placeholder="confirm password"
-                      {...field}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
+        
             <Button
               className="bg-blue-500 rounded w-full text-white-500"
               type="submit"
             >
               {" "}
-              SIGN UP
+              LOGIN
             </Button>
           </form>
         </Form>
-        {/* add already have account li*/}
-        {/* <p className="text-sm">Already have an account</p> */}
+        {/* add NEW USERli*/}
+        {/* <p className="text-sm">p> */}
       </div>
     </section>
   );
 }
+
