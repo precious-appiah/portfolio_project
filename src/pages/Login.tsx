@@ -76,7 +76,7 @@ export default function Login() {
             />
         
             <Button
-              className="bg-blue-500 rounded w-full text-white-500"
+              className="bg-blue-500 rounded w-full text-white"
               type="submit"
             >
               {" "}

@@ -111,7 +111,7 @@ export default function Registration() {
               )}
             />
             <Button
-              className="bg-blue-500 rounded w-full text-white-500"
+              className="bg-blue-500 rounded w-full text-white"
               type="submit"
             >
               {" "}
