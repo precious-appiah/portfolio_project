@@ -5,11 +5,11 @@ interface Todo{
 }
 const TodoList :React.FC<Todo>=({ todos }) =>{
     return (
-      <ol className="todo_list">
+      <ol className="todo_list flex justify-center">
         {todos && todos.length > 0 ? (
           todos?.map((item:any, index:any) => <Item key={index} item={item} />)
         ) : (
-          <p>Seems lonely in here, what are you up to?</p>
+          <p className='text-xs font-light text-gray-500'>Seems lonely in here, what are you up to?</p>
         )}
       </ol>
     );

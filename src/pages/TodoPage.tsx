@@ -4,7 +4,7 @@ import TodoHero from "@/components/TodoHero";
 import TodoList from "@/components/TodoLists";
 function TodoPage() {
   return (
-    <div className="wrapper">
+    <div className=" ">
       <Header />
       <TodoHero completed={0} total={0} />
       <Form />
