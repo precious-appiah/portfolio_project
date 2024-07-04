@@ -11,7 +11,8 @@ const formSchema = z.object({
   task: z.string().min(1),
 });
 
-export default function TodoForm() {
+export default function TodoForm({setTodo}:any) {
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -19,7 +20,11 @@ export default function TodoForm() {
     },
   });
   const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+    console.log(data.task);
+    setTodo((items:any)=>[...items,{title: data?.task, id:self.crypto.randomUUID(), is_completed: false}])
+    form.reset()
+    
+
   };
 
   return (
